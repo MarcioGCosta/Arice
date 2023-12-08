@@ -36,6 +36,8 @@ sudo timedatectl set-timezone America/Sao_Paulo
 ## Setting Xorg keymap
 sudo localectl --no-convert set-x11-keymap br dvorak
 
+sudo usermod -aG libvirt $USER
+
 sudo sed '/unix_sock_rw_perms/s/^#//' -i /etc/libvirt/libvirtd.conf
 sudo sed '/unix_sock_group/s/^#//' -i /etc/libvirt/libvirtd.conf
 sudo sed '/user = "libvirt-qemu"/s/^#//' -i /etc/libvirt/qemu.conf
