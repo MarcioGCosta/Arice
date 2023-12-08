@@ -23,7 +23,7 @@ set $menu rofi -show drun -show-icons "Papirus-dark" -theme solarized -font "hac
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /etc/sway/back.png stretch
+#output * bg /etc/sway/back.png stretch
 #
 # Example configuration:
 #
