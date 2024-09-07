@@ -7,7 +7,7 @@ sudo sed '/Color/s/^#//' -i /etc/pacman.conf && sudo sed '/ParallelDownloads/s/^
 yes | sudo pacman -Sy reflector && sudo reflector --sort score --save /etc/pacman.d/mirrorlist. && sudo rm /etc/pacman.d/mirrorlist && sudo mv /etc/pacman.d/mirrorlist. /etc/pacman.d/mirrorlist
 
 ## Installing misc progams
-sudo pacman -Sy zsh-syntax-highlighting plasma rofi zsh-autosuggestions libvdpau-va-gl xf86-video-amdgpu vulkan-radeon xorg-xwayland libva-mesa-driver qemu virt-manager edk2-ovmf dnsmasq mesa-vdpau mesa pulsemixer qbittorrent bat ripgrep htop ufw ntp wireplumber pipewire-jack foot mpv yt-dlp pipewire papirus-icon-theme pipewire-pulse pipewire-alsa playerctl dash go zsh noto-fonts-emoji ttf-nerd-fonts-symbols ttf-ibm-plex feh neovim doas yarn npm xsel android-tools android-udev libreoffice-fresh-pt-br wine lutris wine-mono winetricks bluez-libs bluez-utils bluez pcmanfm dosfstools vkd3d vulkan-headers mesa lib32-mesa lib32-vulkan-icd-loader lib32-vulkan-radeon
+sudo pacman -Sy firefox zsh-syntax-highlighting plasma rofi zsh-autosuggestions libvdpau-va-gl xf86-video-amdgpu vulkan-radeon xorg-xwayland libva-mesa-driver qemu virt-manager edk2-ovmf dnsmasq mesa-vdpau mesa pulsemixer qbittorrent bat ripgrep htop ufw ntp wireplumber pipewire-jack foot mpv yt-dlp pipewire papirus-icon-theme pipewire-pulse pipewire-alsa playerctl dash go zsh noto-fonts-emoji ttf-nerd-fonts-symbols ttf-ibm-plex feh neovim doas yarn npm xsel android-tools android-udev libreoffice-fresh-pt-br wine lutris wine-mono winetricks bluez-libs bluez-utils bluez pcmanfm dosfstools vkd3d vulkan-headers mesa lib32-mesa lib32-vulkan-icd-loader lib32-vulkan-radeon
 
 ## Moving folders
 mv $HOME/Arice/config/.zshrc /$HOME/.zshrc && mv $HOME/Arice/config/.config/* /$HOME/.config
