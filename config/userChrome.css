@@ -1,0 +1,153 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* TABS: bottom - Firefox 65 and later - updated for 89+ */
+/* https://searchfox.org/mozilla-release/source/browser/themes/shared/tabs.inc.css */
+/* https://developer.mozilla.org/en-US/docs/Tools/Browser_Toolbox */
+
+/* ROOT - VARS */
+/* you can adjust the CSS variables until it looks correct */
+/* you can use the Browser Toolbox to get the toolbar heights */
+
+*|*:root {
+  --tab-toolbar-navbar-overlap: 0px !important;
+
+  --tab-min-height: 30px !important;
+  --tab-min-width:  60px !important;
+
+  --tab-adjust:  4px; /* adjust tab bar 65-73 */
+  --tab-caption: 5px; /* caption buttons on tab bar */
+}
+
+/* TAB BAR - below nav-bar */
+#navigator-toolbox toolbar:not(#nav-bar):not(#toolbar-menubar) {
+  -moz-box-ordinal-group: 10 !important;
+}
+#TabsToolbar {
+  -moz-box-ordinal-group: 1000 !important;
+}
+
+#TabsToolbar {
+  display: block !important;
+  position: absolute !important;
+  bottom: 0 !important; 
+  width: 100vw !important;
+}
+
+#tabbrowser-tabs {
+  width: 100vw !important;
+}
+
+/* navigator-toolbox - PADDING */
+*|*:root:not([chromehidden*="toolbar"]) #navigator-toolbox {
+  position: relative !important;  /*89+*/
+  padding-bottom: calc(var(--tab-min-height) + 1px) !important; /*ADJUST*/
+  background-color: var(--toolbar-bgcolor) !important;
+}
+
+/* TabsToolbar with menubar and titlebar hidden - Firefox 65-73 */
+*|*:root[tabsintitlebar]:not([inFullscreen="true"]):not([sizemode="maximized"])
+ #toolbar-menubar[autohide="true"] ~ #xTabsToolbar{
+ bottom: var(--tab-adjust);   /*ADJUST*/
+}
+
+/* TABS: height */
+#tabbrowser-tabs,
+#tabbrowser-tabs > .tabbrowser-arrowscrollbox,
+.tabbrowser-tabs[positionpinnedtabs] > .tabbrowser-tab[pinned] {
+  min-height: var(--tab-min-height) !important;
+  max-height: var(--tab-min-height) !important;
+}
+
+#TabsToolbar {
+  height: var(--tab-min-height) !important;
+  margin-bottom: 1px !important;
+  box-shadow: ThreeDShadow 0 -1px inset, -moz-dialog 0 1px !important; /*OPTIONAL*/
+  background-color: var(--toolbar-bgcolor) !important;
+  color:            var(--toolbar-color) !important;
+}
+
+/* indicators *//*
+*|*:root[privatebrowsingmode=temporary] .private-browsing-indicator {
+  position: absolute !important;
+  display: block !important;
+  right: 0px !important;
+  bottom: 0px !important;
+  width: 14px !important;
+  pointer-events: none !important;
+}
+*/
+.private-browsing-indicator {display: none !important;}
+.accessibility-indicator    {display: none !important;}
+
+/* Indicators - HIDE *//*
+*|*:root:not([accessibilitymode])             .accessibility-indicator    {display: none !important}
+*|*:root:not([privatebrowsingmode=temporary]) .private-browsing-indicator {display: none !important}
+*/
+
+/* Drag Space */
+.titlebar-spacer[type="pre-tabs"],
+.titlebar-spacer[type="post-tabs"] {
+  width: 20px !important;
+}
+
+/* Override vertical shifts when moving a tab */
+#navigator-toolbox[movingtab] > #titlebar > #TabsToolbar {
+  padding-bottom: unset !important;
+}
+
+#navigator-toolbox[movingtab] #tabbrowser-tabs {
+  padding-bottom: unset !important;
+  margin-bottom: unset !important;
+}
+
+#navigator-toolbox[movingtab] > #nav-bar {
+  margin-top: unset !important;
+}
+
+/* Hide window-controls and caption buttons on Tab Bar */
+#TabsToolbar #window-controls {display: none !important;}
+#TabsToolbar .titlebar-buttonbox-container {display: none !important;}
+
+
+If you want to experiment with the Window Controls try this code:
+
+/* window-controls - full screen */
+#TabsToolbar[inFullscreen] #window-controls {
+  position: absolute !important;
+  display: block !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 1 !important;
+}
+#TabsToolbar[inFullscreen] #window-controls toolbarbutton {
+  display:inline-block !important;
+  margin: 0px -3px 0px -3px !important;
+}
+#TabsToolbar[inFullscreen] {padding-right: 90px !important;} /*ADJUST*/
+
+
+If you want to experiment with the caption buttons. try this code:
+
+/* caption buttons - TAB BAR */
+*|*:root[tabsintitlebar]:not([inFullscreen]) #toolbar-menubar[autohide="true"]
+ ~ #TabsToolbar .titlebar-buttonbox-container {
+  position: absolute !important;
+  display: block !important;
+  right: 0 !important;
+  bottom: var(--tab-caption) !important;  /*ADJUST*/
+  height: var(--tab-min-height) !important;
+/* visibility: hidden !important; /* visibility: hide caption buttons */
+}
+
+/* caption buttons - HEIGHT */
+.titlebar-buttonbox-container .titlebar-button {
+  height: var(--tab-min-height) !important;
+  margin: 0px -5px 0px -5px !important;
+  padding: 0px !important;
+}
+
+/* caption buttons - PADDING */
+*|*:root[tabsintitlebar]:not([inFullscreen="true"])
+ #toolbar-menubar[autohide="true"] ~
+  #TabsToolbar { padding-right: 90px !important; }  /*ADJUST*/
+
