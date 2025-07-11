@@ -25,7 +25,7 @@ touch doas.conf && echo permit nopass "$USER" as root >doas.conf && sudo mv doas
 sudo mv $HOME/Arice/config/20-amdgpu.conf /etc/X11/xorg.conf.d && sudo chown root:root /etc/X11/xorg.conf.d/20-amdgpu.conf
 
 ## Installing misc programs in yay
-yay -S pfetch orphan-manager floorp-bin ly ttf-noto adobe-source-han-sans-otc-fonts ttf-liberation ttf-dejavu
+yay -S pfetch orphan-manager floorp-bin ly ttf-noto adobe-source-han-sans-otc-fonts ttf-liberation ttf-dejavu freecad-weekly-appimage
 
 ## Enabling daemons
 sudo systemctl enable ufw.service && sudo systemctl enable ntpd.service && sudo systemctl enable libvirtd.socket && sudo systemctl enable bluetooth.service && sudo systemctl enable ly.service
